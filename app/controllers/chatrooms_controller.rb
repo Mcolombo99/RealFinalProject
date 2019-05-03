@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :authenticate_user!
    private def chatroom_params
     params.require(:chatroom).permit(:name)
   end
