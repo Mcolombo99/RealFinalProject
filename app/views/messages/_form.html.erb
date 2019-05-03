@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :chatroom_id %>
-    <%= form.collection_select(:chatroom_id, Chatroom.all, :id, :name, :include_blank => '--None--') %>  </div>
+    <%= form.collection_select(:chatroom_id, current_user.chatrooms, :id, :name, :include_blank => '--None--') %>  </div>
 
   <div class="actions">
     <%= form.submit %>
