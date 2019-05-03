@@ -30,12 +30,12 @@
 
   <ul>
     <% @chatroom.messages.each do |message| %>
+      <% if !message.body.blank? %>
       <li><%=  message.body %> - Created on <%= message.created_at_formatted %></li>
+      <%end%>
     <% end %>
   </ul>
 <% end %>
+<%= render 'form2', message: @message %>
 
-<%= link_to 'New message', new_message_path %> |
-<%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
-<%= link_to 'Destroy', @chatroom, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', chatrooms_path %>

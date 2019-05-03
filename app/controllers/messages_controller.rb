@@ -22,13 +22,13 @@ class MessagesController < ApplicationController
     @message = Message.new
     @chatroom = @message.chatroom || nil
     @message.save
-    @chatroom ? (redirect_to "/chatrooms/#{@message.chatroom_id}") : nil
+    @chatroom ? (redirect_to "/chatrooms") : nil
   end
 
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to "/chatrooms/#{@message.chatroom_id}"
+      redirect_to "/chatrooms"
     else
       render :new
     end
@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
     if @message.update(message_params)
       redirect_to "/chatrooms/#{@message.chatroom_id}"
     else
-      render :edit
+      render '/'
     end
   end
 

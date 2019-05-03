@@ -8,6 +8,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @users = User.all
+    @message = @chatroom.messages.create
     chatroom_path(@chatroom)
   end
   def add_user
