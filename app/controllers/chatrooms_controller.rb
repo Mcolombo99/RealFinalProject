@@ -13,11 +13,11 @@ class ChatroomsController < ApplicationController
   end
 
   def new
-    @chatroom = Chatroom.new
+    @chatroom = current_user.chatrooms.build
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
+    @chatroom = current_user.chatrooms.build(chatroom_params)
     if @chatroom.save
       redirect_to "/chatrooms/#{@chatroom.id}"
     else
