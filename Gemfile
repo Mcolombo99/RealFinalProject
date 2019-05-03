@@ -9,7 +9,6 @@ gem 'puma', '3.11.0'
 gem 'sass-rails', '5.0.7'
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '4.1.2'
-gem 'bcrypt', '3.1.11'
 gem 'bootstrap', '4.0.0'
 gem 'devise'
 group :development, :test do
@@ -17,8 +16,6 @@ group :development, :test do
   gem 'capybara', '2.17.0'
   gem 'pry', '0.11.3'
   gem 'rack_session_access', '0.1.1'
-  gem 'rspec-rails', '3.7.2'
-  gem 'rubocop', '0.52.1'
 end
 
 group :production do
