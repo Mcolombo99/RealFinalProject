@@ -2,6 +2,27 @@
 
 <h1><%= @chatroom.name %></h1>
 
+
+<h2>Users:</h2>
+<% if @chatroom.users.empty? %>
+  <p>DONT FORGET TO ADD YOURSELF...</p>
+<% else %>
+<ul>
+    <% @chatroom.users.each do |user| %>
+      <li><%=  user.email %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>Add a user:</h3>
+<%= form_with url: "/chatrooms/#{@chatroom.id}/users" do |form| %>
+  <%= form.collection_select :user_id, @users, :id, :email, prompt: true %>
+  <%= form.submit 'Add Student' %>
+<% end %>
+
+
+
+
 <% if @chatroom.messages.empty? %>
   <p>No messages in this chatroom yet! Add a message with the button below.</p>
 <% else %>

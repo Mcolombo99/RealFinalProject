@@ -13,9 +13,9 @@
   <tbody>
     <% @chatrooms.each do |chatroom| %>
       <tr>
+        <% if chatroom.users.include? current_user %> 
         <td><%= chatroom.name %></td>
-        <td><%= chatroom.user.email %></td>
-        <% if chatroom.user == current_user %> 
+        
         <td><%= link_to 'Show', chatroom %></td>
         <td><%= link_to 'Edit', edit_chatroom_path(chatroom) %></td>
         <td><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
