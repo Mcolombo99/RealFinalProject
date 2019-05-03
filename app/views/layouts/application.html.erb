@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LastHope</title>
+    <title>ChatApp</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,16 +9,13 @@
   </head>
 
   <body>
-    <% if !user_signed_in? %>
-    <%= link_to "Sign Up", new_user_registration_path %>  
-    <%= link_to "Log In", new_user_session_path %>  
-    <% else %>
-    <h1> Hi There <%=current_user.email %> </h1>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <%end%>
-  	<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    
+    <%= render 'layouts/nav' %>
 
-    <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
