@@ -4,9 +4,7 @@
 <h1> Welcome <%=current_user.email %> </h1>
 <%end%>
 
- <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
+
     <% if !user_signed_in? %>
     <a href="/users/sign_in">Log In</a>
     <a href="/users/sign_up">Sign Up</a>
@@ -15,7 +13,5 @@
     <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
     <%end%>
 
-  </div>
-</div> 
 
 
